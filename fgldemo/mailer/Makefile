@@ -1,10 +1,10 @@
-BUNDLE_IDENTIFIER   = com.4js.mailer
-APPNAME             = MailTest
-MODE                = debug
-#DEVICE              = simulator
-DEVICE              = phone
-IDENTITY='(59W7RY75ZU)'
-PROVISIONING_PROFILE=/Users/leo/Library/MobileDevice/Provisioning\ Profiles/4js_wildcard
+BUNDLE_IDENTIFIER     =  com.4js.mailer
+APPNAME               =  MailTest
+MODE                  =  debug
+DEVICE                =  phone
+IDENTITY             ?= (59W7RY75ZU)
+PROVISIONING_PROFILE ?= /Users/leo/Library/MobileDevice/Provisioning Profiles/4js_wildcard
+$(warning IDENTITY=$(IDENTITY) PROVISIONING_PROFILE=$(PROVISIONING_PROFILE))
 
 ifndef GMIDIR
 GMIDIR=$(FGLDIR)
@@ -25,7 +25,7 @@ FORMS    = $(patsubst %.per, %.42f, $(wildcard *.per))
 all:: $(MODULES) $(FORMS) 
 
 define gmibuild
-	gmibuildtool --install=$(1) --app-name=$(APPNAME) --bundle-id=$(BUNDLE_IDENTIFIER) --provisioning=$(PROVISIONING_PROFILE) --certificate=$(IDENTITY) --device=$(DEVICE) --verbose=yes --mode=$(MODE) --build-cordova=$(PLUGIN) 
+	gmibuildtool --install=$(1) --app-name=$(APPNAME) --bundle-id=$(BUNDLE_IDENTIFIER) --provisioning='$(PROVISIONING_PROFILE)' --certificate='$(IDENTITY)' --device=$(DEVICE) --mode=$(MODE) --build-cordova=$(PLUGIN)
 endef
 
 #just builds build/iphoneos/GMI.ipa
