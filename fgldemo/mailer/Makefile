@@ -4,7 +4,7 @@ MODE                  =  debug
 DEVICE                =  phone
 IDENTITY             ?= (59W7RY75ZU)
 PROVISIONING_PROFILE ?= /Users/leo/Library/MobileDevice/Provisioning Profiles/4js_wildcard
-$(warning IDENTITY=$(IDENTITY) PROVISIONING_PROFILE=$(PROVISIONING_PROFILE))
+#$(info IDENTITY=$(IDENTITY) PROVISIONING_PROFILE=$(PROVISIONING_PROFILE))
 
 ifndef GMIDIR
 GMIDIR=$(FGLDIR)
